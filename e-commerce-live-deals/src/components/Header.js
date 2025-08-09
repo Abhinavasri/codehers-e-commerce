@@ -4,9 +4,12 @@ import { ShoppingCart } from "@mui/icons-material";
 import SearchIcon from "@mui/icons-material/Search";
 import { useNavigate } from "react-router-dom";
 import "../index.css"; // for external CSS
+import { useCart } from "../context/CartContext";
 
-export default function Header({ totalQty }) {
+export default function Header() {
   const navigate = useNavigate();
+    const cart = useCart();
+  const totalQty = cart.items.reduce((sum, item) => sum + item.qty, 0);
 
   return (
     <AppBar position="sticky" color="inherit" elevation={1} sx={{ mb: 3 }}>
@@ -23,7 +26,7 @@ export default function Header({ totalQty }) {
 
         {/* Navigation Links */}
         <Box sx={{ display: "flex", alignItems: "center", gap: 2 }}>
-          <Button color="inherit" onClick={() => navigate("/")}>Home</Button>
+          <Button color="inherit" onClick={() => navigate("/ ")}>Home</Button>
           <Button color="inherit" onClick={() => navigate("/products")}>Products</Button>
           <IconButton onClick={() => navigate("/cart")} aria-label="cart">
             <Badge badgeContent={totalQty} color="secondary">
