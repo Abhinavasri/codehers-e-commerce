@@ -5,8 +5,10 @@ import { useNavigate } from 'react-router-dom';
 import Footer from '../components/Footer';
 import { useCart } from '../context/CartContext';
 import { currency } from '../utils/format';
+import { useCartDispatch } from '../context/CartContext';
 
 export default function CheckoutPage() {
+  const dispatch = useCartDispatch();
   const cart = useCart();
   const navigate = useNavigate();
 
@@ -35,6 +37,7 @@ export default function CheckoutPage() {
   const handlePlaceOrder = () => {
   if (!formData.name || !formData.email || !formData.phone || !formData.address) {
     alert('Please fill in all details before placing the order.');
+     dispatch({ type: 'CLEAR' }) 
     return;
   }
 

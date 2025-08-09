@@ -1,20 +1,23 @@
+/* Global Styles */
 html, body, #root {
   height: 100%;
 }
-body{
-  -webkit-font-smoothing:antialiased;
-  -moz-osx-font-smoothing:grayscale;
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
-.product-card-root{ display:flex; flex-direction:column; height:100%; }
-
-
-
-/* Abhinava */
+/* Tailwind Base, Components, and Utilities */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
+/* Product Card Root */
+.product-card-root {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
 
 /* Hero Section */
 .hero-section {
@@ -28,7 +31,10 @@ body{
   display: flex;
   align-items: center;
   gap: 2rem;
-  flex-wrap: wrap; /* so it stacks on mobile */
+  flex-wrap: wrap;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  text-align: center;
 }
 
 .hero-content {
@@ -62,40 +68,128 @@ body{
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
-
-/* index.css */
-
-.hero-section {
-  background-color: #f5f5f5;
-  padding-top: 3rem;   /* equivalent to py-12 in Tailwind */
-  padding-bottom: 3rem;
+/* Responsive Hero Adjustments */
+@media (max-width: 991px) { /* Below large screens */
+  .hero-image {
+    min-width: 100%;
+    margin-top: 1rem;
+  }
 }
 
-.hero-container {
-  max-width: 80rem;   /* similar to max-w-7xl */
+@media (max-width: 599px) { /* Small screens */
+  .hero-title {
+    font-size: 1.75rem;
+  }
+  .hero-subtitle {
+    font-size: 0.9rem;
+  }
+}
+
+/* Search Bar Section */
+.search-section {
+  padding: 1.5rem 1rem;
+  background-color: #f5f5f5;
+}
+
+.search-container {
+  max-width: 80rem;
   margin-left: auto;
   margin-right: auto;
-  padding-left: 1rem;  /* px-4 in Tailwind */
-  padding-right: 1rem;
-  text-align: center;
+  padding: 0 1rem;
 }
 
-.hero-title {
-  font-size: 2.25rem;  /* text-4xl */
-  font-weight: bold;
+.search-box {
+  display: flex;
+  align-items: center;
+  background-color: var(--mui-palette-background-paper, #fff);
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 8px 12px;
+  width: 100%;
+  max-width: 600px;
+  transition: border-color 0.2s ease;
+}
+
+.search-box:focus-within {
+  border-color: #1976d2;
+}
+
+.search-icon {
+  margin-right: 8px;
+  color: #666;
+}
+
+/* Responsive Search Bar */
+@media (max-width: 599px) {
+  .search-box {
+    max-width: 100%;
+  }
+}
+
+/* Main Layout */
+.main-container {
+  max-width: 80rem;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 2rem 1rem;
+  display: flex;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+/* Filter Section */
+.filter-section {
+  flex: 1;
+  min-width: 250px;
+  background-color: #fff;
+  border-radius: 8px;
+  padding: 1.5rem;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+  position: sticky;
+  top: 100px;
+  height: fit-content;
+}
+
+.filter-section h6 {
+  font-size: 1.5rem;
+  font-weight: 600;
   margin-bottom: 1rem;
+  color: #333;
 }
 
-.hero-subtitle {
-  font-size: 1rem;
-  color: #555; /* optional subtle text color */
+/* Responsive Filter Section */
+@media (max-width: 991px) {
+  .filter-section {
+    position: static; /* remove sticky on smaller screens */
+    top: auto;
+    margin-bottom: 2rem;
+    width: 100%;
+  }
 }
 
+/* Products Section */
+.products-section {
+  flex: 3;
+  min-width: 300px;
+}
+
+.products-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 1.5rem;
+}
+
+/* Responsive Products Grid */
+@media (max-width: 599px) {
+  .products-grid {
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 1rem;
+  }
+}
 
 /* Categories Section */
 .categories-section {
-  padding-top: 1rem;
-  padding-bottom: 2rem;
+  padding: 1rem 0 2rem;
 }
 
 .categories-container {
@@ -152,362 +246,15 @@ body{
   text-align: center;
 }
 
-/* Search bar container */
-.search-box {
-  display: flex;
-  align-items: center;
-  background-color: var(--mui-palette-background-paper, #fff); /* fallback for non-MUI */
-  border: 1px solid #ccc;
-  border-radius: 8px;
-  padding: 4px 8px;
-  width: 100%;
-  max-width: 300px;
-  transition: border-color 0.2s ease;
-}
-
-/* Change outline on focus */
-.search-box:focus-within {
-  border-color: #1976d2; /* MUI primary blue */
-}
-
-/* Search icon spacing */
-.search-icon {
-  margin-right: 8px;
-  color: #666;
-}
-
-
-
-/* Abhinava */
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
-
-/* Hero Section */
-.hero-section {
-  background-color: #f5f5f5;
-  padding: 3rem 1rem;
-}
-
-.hero-container {
-  max-width: 80rem;
-  margin: 0 auto;
-  display: flex;
-  align-items: center;
-  gap: 2rem;
-  flex-wrap: wrap; /* so it stacks on mobile */
-}
-
-.hero-content {
-  flex: 1;
-  min-width: 280px;
-}
-
-.hero-title {
-  font-size: 2.25rem;
-  font-weight: bold;
-  margin-bottom: 1rem;
-}
-
-.hero-subtitle {
-  font-size: 1rem;
-  color: #555;
-}
-
-.hero-image {
-  flex: 1;
-  min-width: 580px;
-  display: flex;
-  justify-content: center;
-}
-
-.hero-image img {
-  max-width: 100%;
-  height: auto;
-  border-radius: 0.5rem;
-  object-fit: cover;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-}
-
-
-/* index.css */
-
-.hero-section {
-  background-color: #f5f5f5;
-  padding-top: 3rem;   /* equivalent to py-12 in Tailwind */
-  padding-bottom: 3rem;
-}
-
-.hero-container {
-  max-width: 80rem;   /* similar to max-w-7xl */
-  margin-left: auto;
-  margin-right: auto;
-  padding-left: 1rem;  /* px-4 in Tailwind */
-  padding-right: 1rem;
-  text-align: center;
-}
-
-.hero-title {
-  font-size: 2.25rem;  /* text-4xl */
-  font-weight: bold;
-  margin-bottom: 1rem;
-}
-
-.hero-subtitle {
-  font-size: 1rem;
-  color: #555; /* optional subtle text color */
-}
-
-
-/* Categories Section */
-.categories-section {
-  padding-top: 1rem;
-  padding-bottom: 2rem;
-}
-
-.categories-container {
-  max-width: 90rem;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.categories-title {
-  font-size: 1.5rem;
-  font-weight: bold;
-  margin-bottom: 1rem;
-}
-
-.categories-list {
-  display: flex;
-  gap: 1rem;
-  overflow-x: auto;
-  padding-bottom: 0.5rem;
-  scroll-behavior: smooth;
-}
-
-.category-card {
-  min-width: 180px;
-  padding: 0.75rem;
-  background-color: white;
-  border-radius: 0.5rem;
-  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
-  border: none;
-  cursor: pointer;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-
-.category-card:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
-}
-
-.category-card img {
-  height: 15rem;
-  width: 100%;
-  object-fit: cover;
-  border-radius: 0.375rem;
-  margin-bottom: 0.75rem;
-}
-
-.category-card.active {
-  border: 2px solid #61dafb;
-}
-
-.category-card div {
-  font-size: 1rem;
-  font-weight: 500;
-  text-align: center;
-}
-
-/* Search bar container */
-.search-box {
-  display: flex;
-  align-items: center;
-  background-color: var(--mui-palette-background-paper, #fff); /* fallback for non-MUI */
-  border: 1px solid #ccc;
-  border-radius: 8px;
-  padding: 4px 8px;
-  width: 100%;
-  max-width: 300px;
-  transition: border-color 0.2s ease;
-}
-
-/* Change outline on focus */
-.search-box:focus-within {
-  border-color: #1976d2; /* MUI primary blue */
-}
-
-/* Search icon spacing */
-.search-icon {
-  margin-right: 8px;
-  color: #666;
-}
-
-
-
-/* Abhinava */
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
-
-/* Hero Section */
-.hero-section {
-  background-color: #f5f5f5;
-  padding: 3rem 1rem;
-}
-
-.hero-container {
-  max-width: 80rem;
-  margin: 0 auto;
-  display: flex;
-  align-items: center;
-  gap: 2rem;
-  flex-wrap: wrap; /* so it stacks on mobile */
-}
-
-.hero-content {
-  flex: 1;
-  min-width: 280px;
-}
-
-.hero-title {
-  font-size: 2.25rem;
-  font-weight: bold;
-  margin-bottom: 1rem;
-}
-
-.hero-subtitle {
-  font-size: 1rem;
-  color: #555;
-}
-
-.hero-image {
-  flex: 1;
-  min-width: 580px;
-  display: flex;
-  justify-content: center;
-}
-
-.hero-image img {
-  max-width: 100%;
-  height: auto;
-  border-radius: 0.5rem;
-  object-fit: cover;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-}
-
-
-/* index.css */
-
-.hero-section {
-  background-color: #f5f5f5;
-  padding-top: 3rem;   /* equivalent to py-12 in Tailwind */
-  padding-bottom: 3rem;
-}
-
-.hero-container {
-  max-width: 80rem;   /* similar to max-w-7xl */
-  margin-left: auto;
-  margin-right: auto;
-  padding-left: 1rem;  /* px-4 in Tailwind */
-  padding-right: 1rem;
-  text-align: center;
-}
-
-.hero-title {
-  font-size: 2.25rem;  /* text-4xl */
-  font-weight: bold;
-  margin-bottom: 1rem;
-}
-
-.hero-subtitle {
-  font-size: 1rem;
-  color: #555; /* optional subtle text color */
-}
-
-
-/* Categories Section */
-.categories-section {
-  padding-top: 1rem;
-  padding-bottom: 2rem;
-}
-
-.categories-container {
-  max-width: 90rem;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.categories-title {
-  font-size: 1.5rem;
-  font-weight: bold;
-  margin-bottom: 1rem;
-}
-
-.categories-list {
-  display: flex;
-  gap: 1rem;
-  overflow-x: auto;
-  padding-bottom: 0.5rem;
-  scroll-behavior: smooth;
-}
-
-.category-card {
-  min-width: 180px;
-  padding: 0.75rem;
-  background-color: white;
-  border-radius: 0.5rem;
-  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
-  border: none;
-  cursor: pointer;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-
-.category-card:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
-}
-
-.category-card img {
-  height: 15rem;
-  width: 100%;
-  object-fit: cover;
-  border-radius: 0.375rem;
-  margin-bottom: 0.75rem;
-}
-
-.category-card.active {
-  border: 2px solid #61dafb;
-}
-
-.category-card div {
-  font-size: 1rem;
-  font-weight: 500;
-  text-align: center;
-}
-
-/* Search bar container */
-.search-box {
-  display: flex;
-  align-items: center;
-  background-color: var(--mui-palette-background-paper, #fff); /* fallback for non-MUI */
-  border: 1px solid #ccc;
-  border-radius: 8px;
-  padding: 4px 8px;
-  width: 100%;
-  max-width: 300px;
-  transition: border-color 0.2s ease;
-}
-
-/* Change outline on focus */
-.search-box:focus-within {
-  border-color: #1976d2; /* MUI primary blue */
-}
-
-/* Search icon spacing */
-.search-icon {
-  margin-right: 8px;
-  color: #666;
+/* Responsive Categories */
+@media (max-width: 599px) {
+  .category-card {
+    min-width: 140px;
+  }
+  .category-card img {
+    height: 12rem;
+  }
+  .categories-title {
+    font-size: 1.25rem;
+  }
 }

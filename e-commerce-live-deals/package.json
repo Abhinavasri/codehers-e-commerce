@@ -22,13 +22,8 @@
   "scripts": {
     "start": "react-scripts start",
     "dev": "vite",
-<<<<<<< HEAD
     "build": "react-scripts build",
     "preview": "vite preview",
-=======
-  "build": "react-scripts build",
-  "preview": "vite preview",
->>>>>>> 3d1ea1b22e8892678a5f2ab625805869b089d6e0
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "predeploy": "npm run build",

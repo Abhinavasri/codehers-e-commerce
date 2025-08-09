@@ -17,7 +17,7 @@ export default function Header() {
         
         {/* Logo */}
         <Box sx={{ display: "flex", alignItems: "center", cursor: "pointer" }} onClick={() => navigate("/")}>
-          <img src="../categories/logo.png" alt="TradeBazaar" style={{ height: 100, marginRight: 8 }} />
+          <img src="/e-commerce/categories/logo.png" alt="TradeBazaar" style={{ height: 100, marginRight: 8 }} />
           <Typography variant="h6" color="primary">TradeBazaar</Typography>
         </Box>
 
@@ -33,7 +33,7 @@ export default function Header() {
               <ShoppingCart />
             </Badge>
           </IconButton>
-          <Button color="warning" onClick={() => navigate("/live-deals")}>Live Deals</Button>
+          <Button color="warning" onClick={() => navigate("/products")}>Live Deals</Button>
         </Box>
 
         {/* Search Box */}

@@ -39,73 +39,53 @@ const ProductsPage = () => {
     });
   }, [filters]);
 
-const handleAddToCart = (product) => {
-  console.log("Added to cart:", product);
-  dispatch({
-    type: "ADD",
-    payload: { product, qty: 1 }
-  });
-};
+  const handleAddToCart = (product) => {
+    console.log("Added to cart:", product);
+    dispatch({
+      type: "ADD",
+      payload: { product, qty: 1 }
+    });
+  };
 
   return (
     <>
       <Header />
-      <Box sx={{ bgcolor: "#f6f8fa", minHeight: "100vh", py: 4 }}>
-        <Container maxWidth="lg">
-          <Grid container spacing={3}>
-            {/* Left: Filters */}
-            <Grid item xs={12} md={3}>
-              <Paper
-                elevation={3}
-                sx={{
-                  p: 3,
-                  borderRadius: 3,
-                  position: "sticky",
-                  top: 100,
-                  bgcolor: "#fff",
-                }}
-              >
-                <Typography variant="h6" sx={{ mb: 2, fontWeight: 600 }}>
-                  Filters
-                </Typography>
-                <FilterPanel filters={filters} setFilters={setFilters} />
-              </Paper>
-            </Grid>
+      <Box sx={{ bgcolor: "#f6f8fa", minHeight: "100vh", py: 4 }} className="search-section">
+        <Container maxWidth="lg" className="search-container">
+          <Paper
+            elevation={0}
+            sx={{ p: 0, borderRadius: 0 }}
+            className="search-box"
+          >
+            <TextField
+              fullWidth
+              size="small"
+              placeholder="Search products..."
+              value={filters.search}
+              onChange={(e) =>
+                setFilters((prev) => ({ ...prev, search: e.target.value }))
+              }
+              InputProps={{
+                endAdornment: (
+                  <InputAdornment position="end">
+                    <IconButton className="search-icon">
+                      <SearchIcon />
+                    </IconButton>
+                  </InputAdornment>
+                ),
+              }}
+            />
+          </Paper>
 
-            {/* Right: Search + Products */}
-            <Grid item xs={12} md={9}>
-              {/* Search Bar */}
-              <Paper
-                elevation={2}
-                sx={{
-                  p: 2,
-                  borderRadius: 2,
-                  bgcolor: "#fff",
-                  mb: 3,
-                }}
-              >
-                <TextField
-                  fullWidth
-                  size="small"
-                  placeholder="Search products..."
-                  value={filters.search}
-                  onChange={(e) =>
-                    setFilters((prev) => ({ ...prev, search: e.target.value }))
-                  }
-                  InputProps={{
-                    endAdornment: (
-                      <InputAdornment position="end">
-                        <IconButton>
-                          <SearchIcon />
-                        </IconButton>
-                      </InputAdornment>
-                    ),
-                  }}
-                />
-              </Paper>
-
-              {/* Products Grid */}
-              <Grid container spacing={3}>
+          <div className="main-container">
+            <div className="filter-section">
+              <Typography variant="h6" className="filter-section h6">
+                Filters
+              </Typography>
+              <FilterPanel filters={filters} setFilters={setFilters} />
+            </div>
+            <div className="products-section">
+              <Grid container spacing={3} className="products-grid">
                 {filteredProducts.length > 0 ? (
                   filteredProducts.map((item) => (
                     <Grid item xs={12} sm={6} md={4} key={item._id}>
@@ -118,25 +98,21 @@ const handleAddToCart = (product) => {
                 ) : (
                   <Grid item xs={12}>
                     <Paper
-                      sx={{
-                        p: 5,
-                        textAlign: "center",
-                        borderRadius: 2,
-                        bgcolor: "#fff",
-                      }}
+                      sx={{ p: 5, borderRadius: 8, bgcolor: "#fff" }}
+                      className="shadow-md text-center"
                     >
-                      <Typography variant="h6" sx={{ mb: 1 }}>
+                      <Typography variant="h6" sx={{ mb: 1 }} className="text-gray-700">
                         No products found
                       </Typography>
-                      <Typography variant="body2" color="text.secondary">
+                      <Typography variant="body2" color="text.secondary" className="text-gray-500">
                         Try adjusting your filters or search keywords.
                       </Typography>
                     </Paper>
                   </Grid>
                 )}
               </Grid>
-            </Grid>
-          </Grid>
+            </div>
+          </div>
         </Container>
       </Box>
       <Footer />
