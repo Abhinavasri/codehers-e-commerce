@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/e-commerce-live-deals/static/css/main.b669cd00.css",
+    "main.js": "/e-commerce-live-deals/static/js/main.492e05ed.js",
+    "index.html": "/e-commerce-live-deals/index.html",
+    "main.b669cd00.css.map": "/e-commerce-live-deals/static/css/main.b669cd00.css.map",
+    "main.492e05ed.js.map": "/e-commerce-live-deals/static/js/main.492e05ed.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.b669cd00.css",
+    "static/js/main.492e05ed.js"
+  ]
+}
