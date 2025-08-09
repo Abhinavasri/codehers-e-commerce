@@ -1,26 +1,3 @@
-// import React from 'react';
-// import { Routes, Route } from 'react-router-dom';
-// import Header from './components/Header';
-// import HomePage from './pages/HomePage';
-// import DealsPage from './pages/DealsPage';
-// import CartPage from './pages/CartPage';
-
-// function App() {
-//   return (
-//     <>
-//       <Header />
-//       <Routes>
-//         <Route path="/" element={<HomePage />} />
-//         <Route path="/deals" element={<DealsPage />} />
-//         <Route path="/cart" element={<CartPage />} />
-//       </Routes>
-//     </>
-//   );
-// }
-
-// export default App;
-
-
 import React from 'react'
 import { Routes, Route } from 'react-router-dom'
 import HomePage from './pages/HomePage'
