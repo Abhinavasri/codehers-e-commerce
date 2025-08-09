@@ -4,7 +4,7 @@ export const MOCK_PRODUCTS = [
     name: 'Wireless Headphones Pro',
     slug: 'wireless-headphones-pro',
     description: 'Comfortable over-ear headphones with active noise canceling.',
-    images: ['https://images.unsplash.com/photo-1518444021800-9571be8d3a3b?w=800&q=60'],
+    images: ['https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQO_HJXCWVCYhj7Lc-MTx_P4ycLA_5WCrhMcw&s'],
     category: 'Electronics',
     price: 4999,
     originalPrice: 6999,
